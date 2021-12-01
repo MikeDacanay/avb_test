@@ -7,6 +7,6 @@ export const useGetCommentsOnInit = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		data && dispatch(initComments(data));
+		data && dispatch(initComments([...data].reverse()));
 	}, [data, dispatch]);
 }

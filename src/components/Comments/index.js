@@ -7,8 +7,6 @@ import { setInitial } from "shared/helpers";
 export const Comments = () => {
 	useGetCommentsOnInit();
 	const comments = useSelector(getComments);
-	
-	// const commentsz = comments.map(comment => console.log(comment));
 
 	return (
 		<div className="Comments">
