@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from 'react-router';
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -20,18 +21,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = () => {
-  const classes = useStyles();
+  const {root, title} = useStyles();
   const dispatch = useDispatch();
-
-  const handleOpen = () => dispatch(toggleCommentsModal());
+  const navigate = useNavigate();
+  const handleOpen = () => dispatch(toggleCommentsModal()); 
+  const navToLeaderBoardHandlr = () => navigate('/leaderboard');
 
   return (
-    <AppBar className={classes.root}>
+    <AppBar className={root}>
       <Toolbar>
-        <Typography variant="h6" className={classes.title}>
+        <Typography variant="h6" className={title}>
           Commentor
-        </Typography>
-
+        </Typography> 
+        <Button color='inherit' onClick={navToLeaderBoardHandlr}>Leaderboard</Button> 
         <Button color="inherit" onClick={handleOpen}>
           Add Comment
         </Button>
