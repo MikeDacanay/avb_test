@@ -13,62 +13,70 @@ export const Comments = () => {
 	const { listItemText, commentLabel, commentText, listItem1, listItem0 } = useStyles(); 
 
 	return (
-		<Stack spacing={4} sx={{'marginTop': '48px'}}>
-			{comments.map(({id, name: fullName, body}) => (
-				<ListItem 
-					alignItems="center" 
-					key={id}
-					className={listItem0}>
-					<ListItemAvatar>
-						<Avatar  
-							{...setInitial(fullName)}/>
-					</ListItemAvatar>
-					<ListItem className={listItem1}>
-						<ListItemText
-							className={listItemText}
-							primary={
-								<Typography
-									component='span'
-									variant='subtitle2'
-									className={commentLabel}>
-									Name: 
-								</Typography>
-							}
-							secondary={
-								<Typography
-									component="div"
-									variant="body2"
-									color="textPrimary"
-									className={commentText}
-								>
-									{fullName}
-								</Typography>
-							}
-						/>
-						<ListItemText
-							className={listItemText}
-							primary={
-								<Typography
-									component='span'
-									variant='subtitle2'
-									className={commentLabel}>
-									Comment: 
-								</Typography>
-							}
-							secondary={
-								<Typography
-									component="div"
-									variant="body2"
-									color="textPrimary"
-									className={commentText}
-								>
-									{body}
-								</Typography>
-							}
-						/>
+		<>
+			<Typography
+				style={{'marginTop': '40px'}}
+				variant='h3'
+				align='center'>
+				Comments
+			</Typography>
+			<Stack spacing={4} sx={{'marginTop': '48px'}}>
+				{comments.map(({id, name: fullName, body}) => (
+					<ListItem 
+						alignItems="center" 
+						key={id}
+						className={listItem0}>
+						<ListItemAvatar>
+							<Avatar  
+								{...setInitial(fullName)}/>
+						</ListItemAvatar>
+						<ListItem className={listItem1}>
+							<ListItemText
+								className={listItemText}
+								primary={
+									<Typography
+										component='span'
+										variant='subtitle2'
+										className={commentLabel}>
+										Name: 
+									</Typography>
+								}
+								secondary={
+									<Typography
+										component="div"
+										variant="body2"
+										color="textPrimary"
+										className={commentText}
+									>
+										{fullName}
+									</Typography>
+								}
+							/>
+							<ListItemText
+								className={listItemText}
+								primary={
+									<Typography
+										component='span'
+										variant='subtitle2'
+										className={commentLabel}>
+										Comment: 
+									</Typography>
+								}
+								secondary={
+									<Typography
+										component="div"
+										variant="body2"
+										color="textPrimary"
+										className={commentText}
+									>
+										{body}
+									</Typography>
+								}
+							/>
+						</ListItem>
 					</ListItem>
-				</ListItem>
-			))}
-		</Stack>
+				))}
+			</Stack>
+		</>
 	)
 }; 
